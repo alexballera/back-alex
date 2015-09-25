@@ -27,6 +27,10 @@ gem 'rails_12factor', group: :production
 
 gem 'puma'
 
+gem 'devise'
+
+gem 'dotenv-rails'
+
 ruby "2.2.2"
 
 # Use ActiveModel has_secure_password
