@@ -50,6 +50,8 @@ group :development, :test do
 
   gem 'guard'
 
+  gem 'guard-rspec', require: false
+
   gem 'guard-livereload', '~> 2.4', require: false
 
 end
