@@ -32,17 +32,17 @@ gem 'devise'
 
 gem 'dotenv-rails'
 
-gem 'bootstrap-sass', '~> 3.1.1'
-
 gem 'autoprefixer-rails'
 
 gem 'font-awesome-sass'
 
+gem 'bootstrap-sass', '~> 3.1.1'
+
 gem 'sprockets'
 
-# gem "therubyracer"
-#
-# gem "twitter-bootstrap-rails"
+gem "therubyracer"
+
+gem "twitter-bootstrap-rails"
 
 
 ruby "2.2.2"
