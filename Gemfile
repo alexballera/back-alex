@@ -8,7 +8,6 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-gem 'bootstrap-sass', '~> 3.1.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -32,6 +31,19 @@ gem 'puma'
 gem 'devise'
 
 gem 'dotenv-rails'
+
+gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'autoprefixer-rails'
+
+gem 'font-awesome-sass'
+
+gem 'sprockets'
+
+# gem "therubyracer"
+#
+# gem "twitter-bootstrap-rails"
+
 
 ruby "2.2.2"
 
