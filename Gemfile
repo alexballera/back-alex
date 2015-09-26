@@ -44,6 +44,10 @@ gem "therubyracer"
 
 gem "twitter-bootstrap-rails"
 
+gem 'formtastic', '~> 3.0'
+
+# gem 'formtastic-bootstrap'
+
 
 ruby "2.2.2"
 
