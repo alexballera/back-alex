@@ -1,0 +1,13 @@
+.navbar{
+  & a{
+    padding: 0 50px;
+    line-height: 50px;
+    &:hover{
+      @extend %hover;
+    }
+  }
+  &-toggle:hover{
+    @extend %hover;
+  }
+
+}
