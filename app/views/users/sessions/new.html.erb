@@ -3,6 +3,12 @@
       <h2 class="users__titulo">Inicia Sesión</h2>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="field">
+      <%= f.label :nombre, class:"users__control users__label" %><br />
+      <%= f.text_field :name, autofocus: true, class:"users__control users__name" %>
+    </div>
+
     <div class="field">
       <%= f.label :correo_electrónico, class:"users__control users__label" %><br />
       <%= f.email_field :email, autofocus: true, class:"users__control users__email"%>

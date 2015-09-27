@@ -1,22 +1,23 @@
 .container-60{
   @extend %max-60;
-  padding: 2em 0 !important;
+  padding-top: 2.5em !important;
   text-align: center;
 }
 
 .users{
-  font-size: 1.4em;
+  font-size: 1.25em;
   &__titulo{
   margin: 0;
   padding: 0;
   }
   &__email,
-  &__password{
+  &__password,
+  &__name{
     @extend %min-60;
     border: none;
     border-bottom: 1px solid;
     outline: none;
-    padding: .70em 1em;
+    padding: .50em 1em;
   }
   &__boton{
     @extend %boton;
