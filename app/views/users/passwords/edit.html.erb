@@ -5,7 +5,7 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <%= f.label :password, "New password" %><br />
+    <%= f.label :contraseña, "Nueva contraseña" %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> caracteres mínimos)</em><br />
     <% end %>
@@ -13,7 +13,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirma la nueva contraseña" %><br />
+    <%= f.label :confirmación_de_contraseña, "Confirma la nueva contraseña" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
