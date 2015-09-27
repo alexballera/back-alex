@@ -1,0 +1,30 @@
+.container-60{
+  @extend %max-60;
+  padding: 2em 0 !important;
+  text-align: center;
+}
+
+.users{
+  font-size: 1.4em;
+  &__titulo{
+  margin: 0;
+  padding: 0;
+  }
+  &__email,
+  &__password{
+    @extend %min-60;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    padding: .70em 1em;
+  }
+  &__boton{
+    @extend %boton;
+    &:hover{
+      @extend %hover;
+    }
+  }
+}
+.field{
+  margin: .75em 0;
+}

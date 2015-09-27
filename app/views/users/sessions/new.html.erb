@@ -1,26 +1,29 @@
-<h2>Inicia Sesión</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :correo_electrónico %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :contraseña %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
+<div class="container-60 users">
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :recuérdame %>
+      <h2 class="users__titulo">Inicia Sesión</h2>
     </div>
-  <% end -%>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :correo_electrónico, class:"users__control users__label" %><br />
+      <%= f.email_field :email, autofocus: true, class:"users__control users__email"%>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Inicia sesión" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :contraseña, class:"users__control users__label" %><br />
+      <%= f.password_field :password, autocomplete: "off", class:"users__control users__password" %>
+    </div>
 
-<%= render "users/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me, class:"users__control users__checkbox" %>
+        <%= f.label :recuérdame, class:"users__control users__label" %>
+      </div>
+    <% end -%>
+    <div class="actions">
+      <%= f.submit "Inicia sesión", class:"users__control users__boton"%>
+    </div>
+    <% end %>
+    <div class="field">
+      <%= render "users/shared/links" %>    
+    </div>
+</div>

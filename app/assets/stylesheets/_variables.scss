@@ -4,3 +4,37 @@ $grisoscuro: #1e1e1e;
   background: aqua !important;
   color: $grisoscuro !important;
 }
+%min-60{
+  min-width: 60% !important;
+  margin:0 auto;
+}
+%min-80{
+  min-width: 80% !important;
+  margin:0 auto;
+}
+%min-100{
+  min-width: 100% !important;
+  margin:0 auto;
+}
+%max-60{
+  max-width: 60% !important;
+  margin:0 auto;  
+}
+%max-80{
+  max-width: 80% !important;
+  margin:0 auto;
+}
+%max-100{
+  max-width: 100% !important;
+  margin:0 auto;
+}
+%boton{
+  min-width: 40% !important;
+  margin:0 auto;
+  padding-top: .75em;
+  padding-bottom: .75em;
+  font-size: 1.5em;
+  font-weight: 700;
+  background:$grisoscuro;
+  color: $grisclaro;
+}
