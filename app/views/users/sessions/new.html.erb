@@ -3,6 +3,7 @@
       <h2 class="users__titulo">Inicia Sesión</h2>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
     <div class="field">
       <%= f.label :nombre, class:"users__control users__label" %><br />
@@ -26,10 +27,10 @@
       </div>
     <% end -%>
     <div class="actions">
-      <%= f.submit "Inicia sesión", class:"users__control users__boton"%>
+      <%= f.submit "Inicia sesión", class:"users__control users__boton" %>
     </div>
     <% end %>
     <div class="field">
-      <%= render "users/shared/links" %>    
+      <%= render "users/shared/links" %>
     </div>
 </div>

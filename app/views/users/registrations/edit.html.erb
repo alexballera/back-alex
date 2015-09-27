@@ -1,44 +1,54 @@
-<h2>Editar Perfil</h2>
+<div class="container-60 users">
+    <div class="field">
+      <h2 class="users__titulo">Editar Perfil</h2>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :nombre, class:"users__control users__label" %><br />
-    <%= f.text_field :name, autofocus: true, class:"users__control users__name" %>
-  </div>
+    <div class="field">
+      <%= f.label :nombre, class:"users__control users__label" %><br />
+      <%= f.text_field :name, autofocus: true, class:"users__control users__name" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :correo_electrónico %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="field">
+      <%= f.label :correo_electrónico, class:"users__control users__label" %><br />
+      <%= f.email_field :email, autofocus: true, class:"users__control users__email"%>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Actualmente a la espera de confirmación para: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Actualmente a la espera de confirmación para: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :cotraseña, class:"users__control users__label" %> <i>(déjalo en blanco si no quieres cambiarlo)</i><br />
+      <%= f.password_field :password, autocomplete: "off", class:"users__control users__password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :confirmación_de_contraseña, class:"users__control users__label" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class:"users__control users__password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :contraseña_actual, class:"users__control users__label" %> <i>(necesitamos tu correo actual para confirmar tus cambios)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off", class:"users__control users__password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Editar", class:"users__control users__boton" %>
+    </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :cotraseña %> <i>(déjalo en blanco si no quieres cambiarlo)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+      <h3>Cancelar mi cuenta</h3>
   </div>
 
   <div class="field">
-    <%= f.label :confirmación_de_contraseña %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <p>¿No estás feliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete %></p>
   </div>
 
   <div class="field">
-    <%= f.label :contraseña_actual %> <i>(necesitamos tu correo actual para confirmar tus cambios)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+      <%= link_to "Regresar", :back %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Editar" %>
-  </div>
-<% end %>
-
-<h3>Cancelar mi cuenta</h3>
-
-<p>¿No estás feliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete %></p>
-
-<%= link_to "Regresar", :back %>
+</div>
