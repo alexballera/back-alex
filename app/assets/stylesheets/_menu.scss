@@ -1,13 +1,14 @@
 .navbar{
-  & a{
-    padding: 0 50px;
-    line-height: 50px;
-    &:hover{
+  & a:hover,
+  &-toggle:hover{
       @extend %hover;
     }
+  &-brand,
+  &-right{
+    padding-left: 2em;
+    padding-right: 2em;
   }
-  &-toggle:hover{
-    @extend %hover;
+  &-toggle{
+    margin-right: 2em;
   }
-
 }
