@@ -21,6 +21,13 @@
   }
   &__boton{
     @extend %boton;
+    &--guardar,
+    &--cancelar{
+      width: 200px;
+      height: 50px;
+      border: none;
+      border-radius: 0 !important;
+    }
     &:hover{
       @extend %hover;
     }
@@ -28,4 +35,11 @@
 }
 .field{
   margin: .75em 0;
+}
+.jumbotron{
+  margin-top: 30px;
+}
+.container_form{
+  @extend %max-80;
+  height: 500px;
 }

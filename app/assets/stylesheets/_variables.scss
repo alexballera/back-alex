@@ -4,6 +4,17 @@ $grisoscuro: #1e1e1e;
   background: aqua !important;
   color: $grisoscuro !important;
 }
+%boton{
+  min-width: 30% !important;
+  margin:0 auto;
+  padding-top: .3em;
+  padding-bottom: .3em;
+  font-size: 1.25em;
+  font-weight: 700;
+  text-align: center;
+  background:$grisoscuro;
+  color: $grisclaro;
+}
 %min-60{
   min-width: 60% !important;
   margin:0 auto;
@@ -27,14 +38,4 @@ $grisoscuro: #1e1e1e;
 %max-100{
   max-width: 100% !important;
   margin:0 auto;
-}
-%boton{
-  min-width: 30% !important;
-  margin:0 auto;
-  padding-top: .3em;
-  padding-bottom: .3em;
-  font-size: 1.25em;
-  font-weight: 700;
-  background:$grisoscuro;
-  color: $grisclaro;
 }

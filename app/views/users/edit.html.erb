@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="jumbotron container_form">
+    <h1>Editar Usuario</h1>
+    <% @user.errors %>
+    <%= semantic_form_for @user do |f| %>
+    <%= f.input :email %>
+    <%= f.input :name, label: "Nombre" %>
+
+    <ul class="nav nav-pills", style="margin:0;padding:0">
+
+      <li class="field", role="presentation", style="hover:green"> 
+        <%= f.submit "Guardar", class:"users__boton users__boton--guardar" %>
+      </li>
+      <li class="field", role="presentation", style="hover:green">
+        <%= link_to "Cancelar", @user, class:"users__boton users__boton--cancelar" %> 
+      </li> 
+    </ul>
+    <% end %> 
+  </div>
+</div>

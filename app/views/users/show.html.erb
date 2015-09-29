@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="jumbotron container_form">
+  <h1>Usuario: <%= @user.name %></h1> 
+  <br>
+  <hr>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @user.name %></td>
+            <td><%= @user.email %></td>
+            <td><%= link_to  "Editar", edit_user_path(@user) %></td>
+            <td><%= link_to 'Eliminar', @user, method: :delete, data: { confirm: '¿Estás seguro de eliminar este usuario?' } %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
