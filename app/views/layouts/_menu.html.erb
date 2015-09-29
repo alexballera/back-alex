@@ -14,10 +14,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Artículos", "/", class:"navbar-item"  %></li>
-        <li><%= link_to "Portafolio", "/", class:"navbar-item"  %></li>
-        <li><%= link_to "Seguidores", "/", class:"navbar-item"  %></li>
-        <li><%= link_to "Usuarios", "/users", class:"nav_item"  %></li>
+        <% if current_user %>
+          <li><%= link_to "Artículos", "/", class:"navbar-item"  %></li>
+          <li><%= link_to "Portafolio", "/", class:"navbar-item"  %></li>
+        <% end %>
+        <%if user_signed_in? && current_user.is_admin? %>
+          <li><%= link_to "Seguidores", "/", class:"navbar-item"  %></li>
+          <li><%= link_to "Usuarios", "/users", class:"nav_item"  %></li>
+          <% else %>
+        <%end%>
         <% if current_user %>
           <li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
           <li><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
