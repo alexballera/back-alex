@@ -48,6 +48,8 @@ gem 'formtastic', '~> 3.0'
 
 gem 'formtastic-bootstrap'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 
 ruby "2.2.2"
 
