@@ -1,6 +1,7 @@
-<div class="container-60 users">
+
+<div class="container-60 users users__editar">
     <div class="field">
-      <h2 class="users__titulo">Editar Perfil</h2>
+      <h2 class="users__titulo"><strong>Editar Perfil</strong></h2>
     </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -8,12 +9,12 @@
 
     <div class="field">
       <%= f.label :nombre, class:"users__control users__label" %><br />
-      <%= f.text_field :name, autofocus: true, class:"users__control users__name" %>
+      <%= f.text_field :name, autofocus: true, class:"users__control users__name users__editar--name" %>
     </div>
 
     <div class="field">
       <%= f.label :correo_electrónico, class:"users__control users__label" %><br />
-      <%= f.email_field :email, autofocus: true, class:"users__control users__email"%>
+      <%= f.email_field :email, autofocus: true, class:"users__control users__email users__editar--name"%>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,32 +22,32 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :cotraseña, class:"users__control users__label" %> <i>(déjalo en blanco si no quieres cambiarlo)</i><br />
-      <%= f.password_field :password, autocomplete: "off", class:"users__control users__password" %>
+      <%= f.label :cotraseña, class:"users__control users__label users__editar--name" %> <i>(déjalo en blanco si no quieres cambiarlo)</i><br />
+      <%= f.password_field :password, autocomplete: "off", class:"users__control users__password users__editar--name" %>
     </div>
 
     <div class="field">
-      <%= f.label :confirmación_de_contraseña, class:"users__control users__label" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", class:"users__control users__password" %>
+      <%= f.label :confirmación_de_contraseña, class:"users__control users__label users__editar--name" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class:"users__control users__password users__editar--name" %>
     </div>
 
     <div class="field">
-      <%= f.label :contraseña_actual, class:"users__control users__label" %> <br />
-      <%= f.password_field :current_password, autocomplete: "off", class:"users__control users__password" %>
+      <%= f.label :contraseña_actual, class:"users__control users__label users__editar--name" %> <br />
+      <%= f.password_field :current_password, autocomplete: "off", class:"users__control users__password users__editar--name" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Editar", class:"users__control users__boton" %>
+    <div class="users__footer">
+      <ul class="nav nav-pills", style="margin:0;padding:0">
+        <li class="field", role="presentation"> 
+          <%= f.submit "Guardar", class:"users__boton users__boton--guardar" %>
+        </li>
+        <li class="field", role="presentation">
+          <%= link_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete, class:"users__control users__boton users__boton--cancelar" %> 
+        </li> 
+      </ul>
     </div>
+        
   <% end %>
-
-  <div class="field">
-      <h3>Cancelar mi cuenta</h3>
-  </div>
-
-  <div class="field">
-    <p>¿No estás feliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete %></p>
-  </div>
 
   <div class="field">
       <%= link_to "Regresar", :back %>

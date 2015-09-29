@@ -1,6 +1,6 @@
 <div class="container-60 users">
   <div class="field">
-    <h2 class="users__titulo">¿Olvidaste tu contraseña?</h2>
+    <h2 class="users__titulo"><strong>¿Olvidaste tu contraseña?</strong></h2>
   </div>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= devise_error_messages! %>

@@ -23,7 +23,7 @@
     @extend %boton;
     &--guardar,
     &--cancelar{
-      width: 200px;
+      width: 250px;
       height: 50px;
       border: none;
       border-radius: 0 !important;
@@ -31,6 +31,15 @@
     &:hover{
       @extend %hover;
     }
+  }
+  &__editar{
+    padding-top: 0 !important;
+    &--name{
+      padding: 0.1em 1em;
+    }
+  }
+  &__footer{
+    margin-left: 19%;
   }
 }
 .field{
