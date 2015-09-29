@@ -39,7 +39,9 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-  <%= render 'layouts/menu' %>
+  <% if current_user %>
+    <%= render 'layouts/menu' %>
+  <% end %>
   <%= bootstrap_flash %>
   <%= yield %>
   </body>

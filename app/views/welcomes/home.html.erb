@@ -1,6 +1,16 @@
 <div class="container">
   <div class="jumbotron container_form">
     <h1>Welcomes</h1>
-    <p>Bienvenido</p>
+    <% if current_user %>
+    <%= render 'layouts/menu' %>
+    <p>Bienvenido a esta página administrativa</p>
+    <% else %>
+    <nav class="navbar">
+      <ul class="nav navbar-nav">
+        <li class="home__boton"><%= link_to 'Iniciar', new_user_session_path , class:"navbar-item users__boton users__boton--guardar" %></li>
+        <li class="home__boton"><%= link_to 'Regístrate', new_user_registration_path , class:"navbar-item users__boton users__boton--guardar" %></li>
+      </ul>
+    </nav>
+    <% end %>
   </div>
 </div>

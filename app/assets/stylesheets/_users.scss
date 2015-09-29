@@ -28,6 +28,9 @@
       border: none;
       border-radius: 0 !important;
     }
+    &--edit{
+      
+    }
     &:hover{
       @extend %hover;
     }
