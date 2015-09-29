@@ -12,8 +12,16 @@
         <tbody>
           <% @users.each do |user| %>
           <tr>
+          <% if user.name.blank? %>
+            <td></td>
+          <% else %>
             <td><%= link_to user.name, user %></td>
+          <% end %>
+          <% if user.email.blank? %>
+            <td></td>
+          <% else %>
             <td><%= user.email %></td>
+          <% end %>
             <td><%= link_to  "Editar", edit_user_path(user) %></td>
             <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estás seguro de eliminar este usuario?' } %></td>
           <% end %>
