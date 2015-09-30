@@ -1,21 +1,25 @@
-<h2>Reenviando instrucciones de desbloqueo</h2>
-
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
+<div class="container-60 users users__editar">
   <div class="field">
-      <%= f.label :nombre, class:"users__control users__label" %><br />
-      <%= f.text_field :name, autofocus: true, class:"users__control users__name" %>
+    <h2 class="users__titulo"><strong>Reenviando instrucciones de desbloqueo</strong></h2>
   </div>
 
-  <div class="field">
-    <%= f.label :correo_electrónico %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="actions">
-    <%= f.submit "Reenviando instrucciones de desbloqueo" %>
-  </div>
-<% end %>
+    <div class="field">
+        <%= f.label :nombre, class:"users__control users__label" %><br />
+        <%= f.text_field :name, autofocus: true, class:"users__control users__name" %>
+    </div>
 
-<%= render "users/shared/links" %>
+    <div class="field">
+      <%= f.label :correo_electrónico %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Reenviando instrucciones de desbloqueo" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
