@@ -1,6 +1,6 @@
 .container-60{
   @extend %max-60;
-  padding-top: 2.5em !important;
+  padding-top: 50px !important;
   text-align: center;
 }
 
@@ -28,21 +28,20 @@
       border: none;
       border-radius: 0 !important;
     }
-    &--edit{
-      
-    }
     &:hover{
       @extend %hover;
     }
   }
   &__editar{
-    padding-top: 0 !important;
     &--name{
       padding: 0.1em 1em;
     }
   }
   &__footer{
     margin-left: 19%;
+  }
+  &__new{
+    margin-top: 50px;
   }
 }
 .field{

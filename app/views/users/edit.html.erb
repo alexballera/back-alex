@@ -12,11 +12,11 @@
     <%end%>
 
     <ul class="nav nav-pills" >
-      <li class="field", role="presentation", style="hover:green"> 
+      <li class="field", role="presentation"> 
         <%= f.submit "Guardar", class:"users__boton users__boton--guardar" %>
       </li>
-      <li class="field", role="presentation", style="hover:green">
-        <%= link_to "Cancelar", @user, class:"users__boton users__boton--cancelar" %> 
+      <li class="field", role="presentation">
+        <%= link_to "Regresar", :back, class:"users__boton users__boton--cancelar" %> 
       </li> 
     </ul>
     <% end %> 
