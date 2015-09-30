@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @project.title %>
@@ -12,7 +10,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @project.user %>
+  <%= @project.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

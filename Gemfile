@@ -50,6 +50,8 @@ gem 'formtastic-bootstrap'
 
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+
 
 ruby "2.2.2"
 

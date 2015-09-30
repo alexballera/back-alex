@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :projects
-  resources :articles
+
   scope "(:locale)", locale: /es|en/ do  
     devise_for :users
-    resources :users
+    resources :users, :categories, :projects, :articles
     root 'welcomes#home'
   end
 
