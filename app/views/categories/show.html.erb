@@ -1,12 +1,16 @@
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @category.user %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="container">
+  <div class="jumbotron container_form">
+    <h1><strong>Categoría</strong></h1>
+    <div class="field">
+      <p><%= @category.title %></p>
+    </div>
+    <div class="field">
+      <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+      <%= link_to 'Editar', edit_category_path(@category) %> |
+      <%= link_to 'Regresar', categories_path %>
+      <% else %>
+      <%= link_to 'Regresar', categories_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

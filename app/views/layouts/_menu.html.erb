@@ -17,6 +17,7 @@
         <% if current_user %>
           <li><%= link_to "Artículos", "/articles", class:"navbar-item"  %></li>
           <li><%= link_to "Proyectos", "/projects", class:"navbar-item"  %></li>
+          <li><%= link_to "Categorías", "/categories", class:"navbar-item"  %></li>
         <% end %>
         <%if user_signed_in? && current_user.is_admin? %>
           <li><%= link_to "Usuarios", "/users", class:"nav_item"  %></li>

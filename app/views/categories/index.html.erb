@@ -1,27 +1,39 @@
-<h1>Listing Categories</h1>
+<div class="container">
+  <div class="jumbotron container_form">
+    <h1><strong>Categorías</strong></h1>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.title %></td>
-        <td><%= category.user %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td><%= category.title %></td>
+              <td><%= link_to 'Detalle', category %></td>
+              <% if user_signed_in? && current_user.is_asistant? %>
+                <td><%= link_to 'Editar', edit_category_path(category) %></td>
+              <% end %>
+              <% if user_signed_in? && current_user.is_admin? %>
+                <td><%= link_to 'Eliminar', category, method: :delete, data: { confirm: '¿Estás seguro de eliminarlo?' } %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+    </div>
+    <div class="field">
+      <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+      <%= link_to 'Nueva Categoría', new_category_path %> |
+      <%= link_to "Regresar", :back %>
+      <% else %>
+      <%= link_to "Regresar", :back %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,17 @@
+<% name ||= "Crear" %>
+<h1><%= name %> Categoría</h1>
+<% @category.errors %>
 <%= semantic_form_for @category do |f| %>
   <%= f.inputs do %>
-    <%= f.input :title %>
-    <%= f.input :user %>
+    <%= f.input :title, :label => I18n.t('title') %>
+    <%= f.input :user, label: "Usuario" %>
   <% end %>
 
+<% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+<div class="field">
   <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
+  <%= f.action :submit, :as => :input, label: "Guardar" %>
   <% end %>
+</div>
+<% end %>
 <% end %>

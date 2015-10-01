@@ -1,6 +1,9 @@
-<h1>Editing Category</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<div class="container">
+  <div class="jumbotron container_form">
+    <%= render "form", name: "Editar" %>
+    <div class="field">
+      <%= link_to 'Detalle', @category %> |
+      <%= link_to 'Regresar', categories_path %>
+    </div>
+  </div>
+</div>

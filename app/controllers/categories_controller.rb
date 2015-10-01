@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_asistant!, only: [:new, :edit, :update]
+  before_action :authenticate_admin!, only: [:destroy]
 
   # GET /categories
   # GET /categories.json
@@ -25,14 +27,17 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-
     respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @category }
+      if current_user.is_asistant?
+        if @category.save
+          format.html { redirect_to @category, notice: 'La categoría fue creada' }
+          format.json { render :show, status: :created, location: @category }
+        else
+          format.html { render :new }
+          format.json { render json: @category.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.html { redirect_to @category, :alert => 'No tienes permisos para realizar esta acción' }
       end
     end
   end
@@ -41,12 +46,16 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1.json
   def update
     respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
+      if current_user.is_asistant?
+        if @category.update(category_params)
+          format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+          format.json { render :show, status: :ok, location: @category }
+        else
+          format.html { render :edit }
+          format.json { render json: @category.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.html { redirect_to @category, :alert => 'No tienes permisos para realizar esta acción' }
       end
     end
   end
@@ -54,10 +63,14 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_user.is_admin?
+        @category.destroy
+        format.html { redirect_to categories_url, notice: 'La categoría fue eliminada' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to '/categories', :alert => 'No tienes permisos para realizar esta acción' }
+      end
     end
   end
 

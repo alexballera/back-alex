@@ -46,12 +46,16 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'El artículo fue editado' }
-        format.json { render :show, status: :ok, location: @article }
+      if current_user.is_asistant?
+        if @article.update(article_params)
+          format.html { redirect_to @article, notice: 'El artículo fue editado' }
+          format.json { render :show, status: :ok, location: @article }
+        else
+          format.html { render :edit }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.html { redirect_to @article, :alert => 'No tienes permisos para realizar esta acción' }
       end
     end
   end
