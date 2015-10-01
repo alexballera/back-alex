@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.new(category_params)
     respond_to do |format|
       if current_user.is_asistant?
         if @category.save

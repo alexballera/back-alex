@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if current_user.is_admin?
         if @user.destroy
-          format.html { redirect_to users_url, 
+          format.html { redirect_to users_url,
             :alert => 'El usuario fue eliminado exitosamente' }
           format.json { head :no_content }
         else
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :permission_level)
+    params.require(:user).permit(:email, :name, :permission_level, :password)
   end
 end

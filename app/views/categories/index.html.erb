@@ -13,7 +13,11 @@
         <tbody>
           <% @categories.each do |category| %>
             <tr>
-              <td><%= category.title %></td>
+              <% if category.title.blank? %>
+                <td></td>
+              <% else %>
+                <td><%= category.title %></td>
+              <% end %>
               <td><%= link_to 'Detalle', category %></td>
               <% if user_signed_in? && current_user.is_asistant? %>
                 <td><%= link_to 'Editar', edit_category_path(category) %></td>

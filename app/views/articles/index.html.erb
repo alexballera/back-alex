@@ -13,8 +13,16 @@
         <tbody>
           <% @articles.each do |article| %>
           <tr>
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
+            <% if article.title.blank? %>
+              <td></td>
+            <% else %>
+              <td><%= article.title %></td>
+            <% end %>
+            <% if article.description.blank? %>
+              <td></td>
+            <% else %>
+              <td><%= article.description %></td>
+            <% end %>
             <td><%= link_to 'Detalle', article %></td>
             <% if user_signed_in? && current_user.is_asistant? %>
             <td><%= link_to 'Editar', edit_article_path(article) %></td>

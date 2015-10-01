@@ -13,8 +13,16 @@
         <tbody>
           <% @projects.each do |project| %>
           <tr>
+          <% if project.title.blank? %>
+            <td></td>
+          <% else %>
             <td><%= project.title %></td>
-            <td><%= project.description %></td>            
+          <% end %>
+          <% if project.description.blank? %>
+            <td></td>
+          <% else %>
+            <td><%= project.description %></td>
+          <% end %>
             <td><%= link_to 'Detalle', project %></td>
             <% if user_signed_in? && current_user.is_asistant? %>
             <td><%= link_to 'Editar', edit_project_path(project) %></td>
