@@ -16,12 +16,10 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%= link_to "Artículos", "/articles", class:"navbar-item"  %></li>
-          <li><%= link_to "Portafolio", "/projects", class:"navbar-item"  %></li>
+          <li><%= link_to "Proyectos", "/projects", class:"navbar-item"  %></li>
         <% end %>
         <%if user_signed_in? && current_user.is_admin? %>
-          <li><%= link_to "Seguidores", "/", class:"navbar-item"  %></li>
           <li><%= link_to "Usuarios", "/users", class:"nav_item"  %></li>
-          <% else %>
         <%end%>
         <% if current_user %>
           <li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>

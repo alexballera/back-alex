@@ -1,19 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="container">
+  <div class="jumbotron container_form">
+    <h1><strong>Artículo</strong></h1>
+    <div class="field">
+      <p><%= @article.title %></p>
+    </div>
+    <div class="field">
+      <h3><strong>Descripción:</strong></h3>
+      <p><%= @article.description %></p>
+    </div>
+    <div class="field">
+      <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+      <%= link_to 'Editar', edit_article_path(@article) %> |
+      <%= link_to 'Regresar', articles_path %>
+      <% else %>
+      <%= link_to 'Regresar', articles_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

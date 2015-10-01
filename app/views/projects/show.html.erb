@@ -1,17 +1,20 @@
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @project.user.name %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="container">
+  <div class="jumbotron container_form">
+    <h1><strong>Proyecto</strong></h1>
+    <div class="field">
+      <p><%= @project.title %></p>
+    </div>
+    <div class="field">
+      <h3><strong>Descripción:</strong></h3>
+      <p><%= @project.description %></p>
+    </div>
+    <div class="field">
+      <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+      <%= link_to 'Editar', edit_project_path(@project) %> |
+      <%= link_to 'Regresar', projects_path %>
+      <% else %>
+      <%= link_to 'Regresar', projects_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

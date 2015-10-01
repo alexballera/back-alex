@@ -14,6 +14,15 @@ def default_url_options(options={})
 end
 
 protected
+
+  def authenticate_asistant!
+    redirect_to root_path, alert: "Lo siento! No estás autorizado para realizar esta acción" unless user_signed_in? && current_user.is_asistant?
+  end
+
+  def authenticate_admin!
+    redirect_to root_path, alert: "Lo siento! No estás autorizado para realizar esta acción" unless user_signed_in? && current_user.is_admin?
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :name, :password, :current_password) }

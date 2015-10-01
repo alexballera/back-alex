@@ -20,6 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  title: Título
+  description: Descripción
+  formtastic:
+    :yes: "Sí"
+    :no: "No"
+    :create: "Guardar %{model}"
+    :update: "Guardar %{model}"
+    :submit: "Aceptar"
+    :cancel: "Cancelar"
+    :reset: "Restablecer %{model}"
+    :required: "requerido"
   date:
     abbr_day_names:
     - dom

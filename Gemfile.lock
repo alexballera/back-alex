@@ -86,6 +86,7 @@ GEM
       actionpack (>= 3.2.13)
     formtastic-bootstrap (3.1.1)
       formtastic (>= 3.0)
+    formtastic_i18n (0.4.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     guard (2.13.0)
@@ -267,6 +268,7 @@ DEPENDENCIES
   font-awesome-sass
   formtastic (~> 3.0)
   formtastic-bootstrap
+  formtastic_i18n
   guard
   guard-livereload (~> 2.4)
   guard-rspec

@@ -1,6 +1,9 @@
-<h1>Editing Article</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<div class="container">
+  <div class="jumbotron container_form">
+    <%= render "form", name: "Editar" %>
+    <div class="field">
+      <%= link_to 'Detalle', @article %> |
+      <%= link_to 'Regresar', articles_path %>
+    </div>
+  </div>
+</div>

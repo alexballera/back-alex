@@ -1,6 +1,9 @@
-<h1>Editing Project</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<div class="container">
+  <div class="jumbotron container_form">
+    <%= render "form", name: "Editar" %>
+    <div class="field">
+      <%= link_to 'Detalle', @project %> |
+      <%= link_to 'Regresar', projects_path %>
+    </div>
+  </div>
+</div>

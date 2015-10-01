@@ -1,5 +1,8 @@
-<h1>New Article</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', articles_path %>
+<div class="container">
+  <div class="jumbotron container_form">
+    <%= render "form" %>
+    <div class="field">
+      <%= link_to 'Regresar', articles_path %>
+    </div>
+  </div>
+</div>

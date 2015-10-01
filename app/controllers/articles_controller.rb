@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_asistant!, only: [:new, :edit, :update]
+  before_action :authenticate_admin!, only: [:destroy]
 
   # GET /articles
   # GET /articles.json
@@ -25,14 +27,17 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
     respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+      if current_user.is_asistant?
+        if @article.save
+          format.html { redirect_to @article, notice: 'El artículo fue creado' }
+          format.json { render :show, status: :created, location: @article }
+        else
+          format.html { render :new }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.html { redirect_to @article, :alert => 'No tienes permisos para realizar esta acción' }
       end
     end
   end
@@ -42,7 +47,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to @article, notice: 'El artículo fue editado' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -54,10 +59,14 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_user.is_admin?
+        @article.destroy
+        format.html { redirect_to articles_url, notice: 'El artículo fue eliminado' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to '/articles', :alert => 'No tienes permisos para realizar esta acción' }
+      end
     end
   end
 

@@ -1,11 +1,20 @@
+<% name ||= "Crear" %>
+<h1><%= name %> Artículo</h1>
+<% @article.errors %>
 <%= semantic_form_for @article do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :user %>
-  <% end %>
-
+<%= f.inputs do %>
+<%= f.input :title, :label => I18n.t('title') %>
+<%= f.input :description, :label => I18n.t('description') %>
+<%= f.input :urlgit, label: "GitHub" %>
+<%= f.input :urlweb, label: "Url Web" %>
+<%= f.input :urlimg, label: "Url Imagen" %>
+<%= f.input :user %>
+<% end %>
+<% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+<div class="field">
   <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
+  <%= f.action :submit, :as => :input, label: "Guardar" %>
   <% end %>
+</div>
+<% end %>
 <% end %>

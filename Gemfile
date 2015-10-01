@@ -48,9 +48,11 @@ gem 'formtastic', '~> 3.0'
 
 gem 'formtastic-bootstrap'
 
-gem 'rack-cors', :require => 'rack/cors'
+gem 'formtastic_i18n'
 
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'paperclip'
 
