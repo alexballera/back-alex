@@ -1,3 +1,6 @@
+textarea{
+  height: 5em !important;
+}
 .container-60{
   @extend %max-60;
   padding-top: 50px !important;
@@ -50,7 +53,21 @@
 .jumbotron{
   margin-top: 30px;
 }
-.container_form{
+.container{
   @extend %max-80;
-  height: 500px;
+  min-height: 600px;
+  background: #EEEEEE;
+  &_form{
+    @extend %max-60;
+    & h1{
+      font-weight: 700;
+    }
+    & .btn,
+    & input{
+      font-weight: 700;
+      &:hover{
+        @extend %hover;
+      }
+    }
+  }
 }

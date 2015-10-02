@@ -3,7 +3,7 @@
     <h1><strong>Categoría</strong></h1>
     <div class="field">
     <div class="field">
-      <h3><strong>Título: </strong><%= @category.title %></h3>
+      <h3><strong><%= @category.title %></strong></h3>
     </div>
     <div class="field">
       <h3><strong>Artículos:</strong></h3>
@@ -20,9 +20,9 @@
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
       <%= link_to 'Editar', edit_category_path(@category) %> |
-      <%= link_to 'Regresar', categories_path %>
+      <%= link_to 'Regresar', :back %>
       <% else %>
-      <%= link_to 'Regresar', categories_path %>
+      <%= link_to 'Regresar', :back %>
       <% end %>
     </div>
   </div>

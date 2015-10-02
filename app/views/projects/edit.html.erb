@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="jumbotron container_form">
+  <div class="container_form">
     <%= render "form", name: "Editar" %>
     <div class="field">
       <%= link_to 'Detalle', @project %> |
-      <%= link_to 'Regresar', projects_path %>
+      <%= link_to 'Regresar', :back %>
     </div>
   </div>
 </div>

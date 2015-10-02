@@ -2,7 +2,7 @@
   <div class="jumbotron container_form">
     <h1><strong>Artículo</strong></h1>
     <div class="field">
-      <h3><strong>Título: </strong><%= @article.title %></h3>
+      <h3><strong><%= @article.title %></strong></h3>
     </div>
     <div class="field">
       <h3><strong>Descripción:</strong></h3>
@@ -17,9 +17,9 @@
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
       <%= link_to 'Editar', edit_article_path(@article) %> |
-      <%= link_to 'Regresar', articles_path %>
+      <%= link_to 'Regresar', :back %>
       <% else %>
-      <%= link_to 'Regresar', articles_path %>
+      <%= link_to 'Regresar', :back %>
       <% end %>
     </div>
   </div>
