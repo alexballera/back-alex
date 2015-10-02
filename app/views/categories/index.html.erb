@@ -16,7 +16,7 @@
               <% if category.title.blank? %>
                 <td></td>
               <% else %>
-                <td><%= category.title %></td>
+                <td><%= link_to category.title, category %></td>
               <% end %>
               <td><%= link_to 'Detalle', category %></td>
               <% if user_signed_in? && current_user.is_asistant? %>

@@ -16,7 +16,7 @@
           <% if project.title.blank? %>
             <td></td>
           <% else %>
-            <td><%= project.title %></td>
+            <td><%= link_to project.title, project %></td>
           <% end %>
           <% if project.description.blank? %>
             <td></td>

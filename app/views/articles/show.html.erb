@@ -11,7 +11,7 @@
     <div class="field">
       <h3><strong>Categorías:</strong></h3>
       <% @article.category.each do |category| %>
-      <%= category.title %>, 
+      <%= link_to category.title, category %>, 
       <% end %>
     </div>
     <div class="field">
