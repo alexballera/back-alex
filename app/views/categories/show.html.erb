@@ -3,6 +3,7 @@
     <h1><strong>Categoría</strong></h1>
     <div class="field">
       <p><%= @category.title %></p>
+      <p><%= @category.article %></p>
     </div>
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
