@@ -6,6 +6,7 @@
     <%= f.input :title, :label => I18n.t('title') %>
     <%= f.input :description, :label => I18n.t('description') %>
     <%= f.input :article, :as => :check_boxes, label: "Artículos" %>
+    <%= f.input :project, :as => :check_boxes, label: "Proyectos" %>
   <% end %>
 
 <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
