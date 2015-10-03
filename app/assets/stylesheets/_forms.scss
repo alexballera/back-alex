@@ -2,7 +2,7 @@ textarea{
   height: 5em !important;
 }
 hr{
-  border-top: 2px solid white !important;
+  border-top: 1px solid white !important;
  }
 
 .container-60{
@@ -53,8 +53,7 @@ hr{
 }
 .field{
   margin: .75em 0;
-  & h2,
-  & p{
+  & span{
     color: peru;
   }
 }
