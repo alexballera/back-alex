@@ -1,10 +1,11 @@
 <div class="container">
-  <div class="jumbotron container_form">
+  <div class="container_form container_index">
     <h1><strong>Artículos</strong></h1>
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
           <tr>
+            <th colspan="1"></th>
             <th>Titulo</th>
             <th>Descripción</th>
             <th colspan="3"></th>
@@ -13,10 +14,11 @@
         <tbody>
           <% @articles.each do |article| %>
           <tr>
+              <td><%= link_to (image_tag article.image.url(:thumb)), article %></td>
             <% if article.title.blank? %>
               <td></td>
             <% else %>
-              <td><%= link_to article.title, article %></td>
+              <td><%= article.title %></td>
             <% end %>
             <% if article.description.blank? %>
               <td></td>

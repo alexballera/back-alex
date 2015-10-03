@@ -54,15 +54,13 @@ textarea{
     color: peru;
   }
 }
-.jumbotron{
-  margin-top: 30px;
-}
 .container{
   @extend %max-80;
   min-height: 600px;
   background: #EEEEEE;
   &_form{
     @extend %max-60;
+    margin-top: 40px;
     & h1{
       font-weight: 700;
     }    
@@ -73,5 +71,8 @@ textarea{
         @extend %hover;
       }
     }
+  }
+  &_index{
+    @extend %max-80;
   }
 }

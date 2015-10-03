@@ -1,18 +1,18 @@
 <div class="container">
-  <div class="jumbotron container_form">
+  <div class="container_form">
     <h1><strong>Categoría</strong></h1>
     <div class="field">
     <div class="field">
       <h2><strong><%= @category.title %></strong></h2>
     </div>
     <div class="field">
-      <h3><strong>Artículos:</strong></h3>
+      <h4><strong>Artículos:</strong></h4>
       <% @category.article.each do |article| %>
       <%= link_to article.title, article %>, 
       <% end %>
     </div>
     <div class="field">
-      <h3><strong>Proyectos:</strong></h3>
+      <h4><strong>Proyectos:</strong></h4>
       <% @category.project.each do |project| %>
       <%= link_to project.title, project %>, 
       <% end %>

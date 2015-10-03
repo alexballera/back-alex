@@ -1,15 +1,18 @@
 <div class="container">
-  <div class="jumbotron container_form">
+  <div class="container_form">
     <h1><strong>Artículo</strong></h1>
     <div class="field">
       <h2><strong><%= @article.title %></strong></h2>
     </div>
     <div class="field">
-      <h3><strong>Descripción:</strong></h3>
+      <%= image_tag @article.image.url(:medium) %>
+    </div>
+    <div class="field">
+      <h4><strong>Descripción:</strong></h4>
       <p><%= @article.description %></p>
     </div>
     <div class="field">
-      <h3><strong>Categorías:</strong></h3>
+      <h4><strong>Categorías:</strong></h4>
       <% @article.category.each do |category| %>
       <%= link_to category.title, category %>, 
       <% end %>
