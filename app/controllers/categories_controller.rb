@@ -48,7 +48,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if current_user.is_asistant?
         if @category.update(category_params)
-          format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+          format.html { redirect_to @category, notice: 'La categoría fue editada' }
           format.json { render :show, status: :ok, location: @category }
         else
           format.html { render :edit }
@@ -82,6 +82,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:title, :user_id, :project_ids => [], :article_ids => [])
+      params.require(:category).permit(:title, :description, :user_id, :project_ids => [], :article_ids => [])
     end
 end

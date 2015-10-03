@@ -4,6 +4,7 @@
 <%= semantic_form_for @category do |f| %>
   <%= f.inputs do %>
     <%= f.input :title, :label => I18n.t('title') %>
+    <%= f.input :description, :label => I18n.t('description') %>
     <%= f.input :article, :as => :check_boxes, label: "Artículos" %>
   <% end %>
 

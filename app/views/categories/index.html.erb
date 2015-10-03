@@ -6,6 +6,7 @@
         <thead>
           <tr>
             <th>Título</th>
+            <th>Descripción</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -17,6 +18,11 @@
                 <td></td>
               <% else %>
                 <td><%= link_to category.title, category %></td>
+              <% end %>
+              <% if category.description.blank? %>
+                <td></td>
+              <% else %>
+                <td><%= category.description %></td>
               <% end %>
               <td><%= link_to 'Detalle', category %></td>
               <% if user_signed_in? && current_user.is_asistant? %>
