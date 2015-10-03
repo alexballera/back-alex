@@ -49,6 +49,10 @@ textarea{
 }
 .field{
   margin: .75em 0;
+  & h2,
+  & p{
+    color: peru;
+  }
 }
 .jumbotron{
   margin-top: 30px;
@@ -61,7 +65,7 @@ textarea{
     @extend %max-60;
     & h1{
       font-weight: 700;
-    }
+    }    
     & .btn,
     & input{
       font-weight: 700;
