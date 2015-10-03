@@ -21,11 +21,14 @@
       <%= link_to project.title, project %>, 
       <% end %>
     </div>
+    <hr>
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
       <%= link_to 'Editar', edit_category_path(@category) %> |
+      <%= link_to 'Categorías', categories_path %> |
       <%= link_to 'Regresar', :back %>
       <% else %>
+      <%= link_to 'Categorías', categories_path %> |
       <%= link_to 'Regresar', :back %>
       <% end %>
     </div>

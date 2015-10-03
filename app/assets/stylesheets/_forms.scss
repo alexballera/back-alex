@@ -1,6 +1,10 @@
 textarea{
   height: 5em !important;
 }
+hr{
+  border-top: 2px solid white !important;
+ }
+
 .container-60{
   @extend %max-60;
   padding-top: 50px !important;

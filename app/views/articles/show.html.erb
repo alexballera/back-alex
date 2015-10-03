@@ -17,11 +17,14 @@
       <%= link_to category.title, category %>, 
       <% end %>
     </div>
+    <hr>
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
       <%= link_to 'Editar', edit_article_path(@article) %> |
+      <%= link_to 'Artículos', articles_path %> |
       <%= link_to 'Regresar', :back %>
       <% else %>
+      <%= link_to 'Artículos', articles_path %> |
       <%= link_to 'Regresar', :back %>
       <% end %>
     </div>

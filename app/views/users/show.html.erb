@@ -13,17 +13,17 @@
         <tbody>
           <tr>
             <% if @user.email.blank? %>
-              <td></td>
+            <td></td>
             <% else %>
-              <td><%= @user.email %></td>
+            <td><%= @user.email %></td>
             <% end %>
             <%case @user.permission_level
-              when 1 %>
-              <td>Usuario</td>
-              <% when 2 %>
-              <td>Asistente</td>
-              <% when 3 %>
-              <td>Admin</td>
+            when 1 %>
+            <td>Usuario</td>
+            <% when 2 %>
+            <td>Asistente</td>
+            <% when 3 %>
+            <td>Admin</td>
             <%end%>
             <% if user_signed_in? && current_user.is_admin? %>
             <td><%= link_to  "Editar", edit_user_path(@user) %></td>
@@ -32,7 +32,9 @@
           </tr>
         </tbody>
       </table>
+      <hr>
       <div class="field">
+        <%= link_to 'Usuarios', users_path %> |
         <%= link_to "Regresar", :back %>
       </div>
     </div>
