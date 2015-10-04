@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_asistant!, only: [:new, :edit, :update]
   before_action :authenticate_admin!, only: [:destroy]
@@ -77,7 +78,13 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      if Category.exists?(params[:id])
+        @category = Category.find(params[:id])
+      else
+        respond_to do |format|
+          format.html { redirect_to users_path, :alert => 'La categoría no existe' }
+        end
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

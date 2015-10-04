@@ -23,7 +23,7 @@
           <% if project.description.blank? %>
             <td></td>
           <% else %>
-            <td><%= project.description %></td>
+            <td><%= truncate(project.description, length: 30) %></td>
           <% end %>
             <td><%= link_to 'Detalle', project %></td>
             <% if user_signed_in? && current_user.is_asistant? %>

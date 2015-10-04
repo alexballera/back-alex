@@ -47,8 +47,15 @@ class UsersController < ApplicationController
   end
 
   private
+
   def set_user
-    @user = User.find(params[:id])
+    if User.exists?(params[:id])
+      @user = User.find(params[:id])
+    else
+      respond_to do |format|
+        format.html { redirect_to users_path, :alert => 'El usuario no existe' }
+      end
+    end
   end
 
   def user_params

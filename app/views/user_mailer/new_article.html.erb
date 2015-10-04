@@ -1,0 +1,5 @@
+Hola recibe nuestro último artículo
+"Nuevo Artículo en el Blog de Alex Ballera"
+<h1> <%= @article.title %></h1>
+<p><%= truncate(@article.description, length: 50) %></p>
+<%= link_to "Leer más", article_url(@article) %>

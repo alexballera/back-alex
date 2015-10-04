@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_asistant!, only: [:new, :edit, :update]
   before_action :authenticate_admin!, only: [:destroy]
@@ -30,7 +31,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if current_user.is_asistant?
         if @article.save
-          format.html { redirect_to @article, notice: 'El artículo fue creado' }
+          format.html { redirect_to @article, notice: 'El artículo fue creado y se enviaron los correos' }
           format.json { render :show, status: :created, location: @article }
         else
           format.html { render :new }
@@ -77,7 +78,13 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      if Article.exists?(params[:id])
+        @article = Article.find(params[:id])
+      else
+        respond_to do |format|
+          format.html { redirect_to articles_path, :alert => 'El artículo no existe' }
+        end
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

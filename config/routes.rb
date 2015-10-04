@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   scope "(:locale)", locale: /es|en/ do  
-    devise_for :users
-    resources :users, :categories, :projects, :articles
-    root 'welcomes#home'
   end
+    devise_for :users
+    root 'welcomes#home'
+    resources :users, :categories, :projects, :articles
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
