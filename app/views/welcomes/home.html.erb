@@ -1,14 +1,14 @@
 <% if current_user %>
 <div class="container home">
   <div class="jumbotron container_form">
-    <h1>Bienvenido!</h1>
+    <h1>Welcome!</h1>
     <p>Bienvenido a esta página administrativa</p>
   </div>
 </div>
 <% else %>
 <div class="container home__container">
   <div class="jumbotron container_form">
-    <h1>Bienvenido!</h1>
+    <h1>Welcome!</h1>
     <nav class="navbar">
       <ul class="nav navbar-nav">
         <li class="home__boton"><%= link_to 'Iniciar', new_user_session_path , class:"navbar-item users__boton " %></li>
