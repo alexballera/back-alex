@@ -1,0 +1,40 @@
+<div class="container-60 users users__new">
+  <div class="field">
+      <h2 class="users__titulo"><strong>Regístrate</strong></h2>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :nombre, class:"users__control users__label" %><br />
+      <%= f.text_field :name, autofocus: true, class:"users__control users__name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :correo_electrónico, class:"users__control users__label" %><br />
+      <%= f.email_field :email, autofocus: true, class:"users__control users__email"%>
+    </div>
+
+    <div class="field">
+      <%= f.label :contraseña, class:"users__control users__label" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class:"users__control users__password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :confirmación_de_contraseña, class:"users__control users__label" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "on", class:"users__control users__password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Regístrate", class:"users__control users__boton" %>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= render "devise/shared/links" %>    
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="container_form">
+    <h1><strong>Editar Usuario</strong></h1>
+    <% @user.errors %>
+    <%= semantic_form_for @user do |f| %>
+    <%= f.input :email %>
+    <%= f.input :name, label: "Nombre" %>
+    <%if current_user.is_admin? %>
+      <%= f.input :permission_level, name: "quantity", min: "1", max: "3", label: "Nivel (1 = Usuario; 2 = Asistente; 3 = Admin)" %>
+    <%else%>
+      <%= f.input :permission_level, name: "quantity", min: "1", max: "2", label: "Nivel (1 = Usuario; 2 = Asistente)" %>
+    <%end%>
+    <div class="field">
+      <%= f.actions do %>
+      <%= f.submit "Guardar" %>
+      <%= link_to 'Usuarios', users_path %> |
+      <%= link_to 'Regresar', :back %>
+      <% end %>
+    </div>
+
+
+    <% end %>
+  </div>
+</div>

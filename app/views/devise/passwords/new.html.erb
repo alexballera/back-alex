@@ -1,0 +1,21 @@
+<div class="container-60 users users__new">
+  <div class="field">
+    <h2 class="users__titulo"><strong>¿Olvidaste tu contraseña?</strong></h2>
+  </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :ingrese_su_correo_electrónico, class:"users__control users__label" %><br />
+      <%= f.email_field :email, autofocus: true, class:"users__control users__email"%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Reiniciar contraseña", class:"users__control users__boton" %>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= render "devise/shared/links" %>
+    </div>
+</div>

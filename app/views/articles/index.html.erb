@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="container_form container_index">
+    <h1><strong>Artículos</strong></h1>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th colspan="1"></th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @articles.each do |article| %>
+          <tr>
+              <td><%= link_to (image_tag article.image.url(:thumb)), article %></td>
+            <% if article.title.blank? %>
+              <td></td>
+            <% else %>
+              <td><%= article.title %></td>
+            <% end %>
+            <% if article.description.blank? %>
+              <td></td>
+            <% else %>
+              <td><%= truncate(article.description, length: 30) %></td>
+            <% end %>
+            <td><%= link_to 'Detalle', article %></td>
+            <% if user_signed_in? && current_user.is_asistant? %>
+            <td><%= link_to 'Editar', edit_article_path(article) %></td>
+            <% end %>
+            <% if user_signed_in? && current_user.is_admin? %>
+            <td><%= link_to 'Eliminar', article, method: :delete, data: { confirm: '¿Estás seguro de eliminarlo?' } %></td>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+    </div>
+    <div class="field">
+      <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+      <%= link_to 'Nuevo Artículo', new_article_path %> |
+      <%= link_to "Regresar", :back %>
+      <% else %>
+      <%= link_to "Regresar", :back %>
+      <% end %>
+    </div>
+  </div>
+</div>

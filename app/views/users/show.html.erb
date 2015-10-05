@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="container_form">
+    <div class="field">
+      <h1><strong><%= @user.name %></strong></h1>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <th>Correo</th>
+          <th>Nivel</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <% if @user.email.blank? %>
+            <td></td>
+            <% else %>
+            <td><%= @user.email %></td>
+            <% end %>
+            <%case @user.permission_level
+            when 1 %>
+            <td>Usuario</td>
+            <% when 2 %>
+            <td>Asistente</td>
+            <% when 3 %>
+            <td>Admin</td>
+            <%end%>
+            <% if user_signed_in? && current_user.is_admin? %>
+            <td><%= link_to  "Editar", edit_user_path(@user) %></td>
+            <td><%= link_to 'Eliminar', @user, method: :delete, data: { confirm: '¿Estás seguro de eliminar este usuario?' } %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <div class="field">
+        <%= link_to 'Usuarios', users_path %> |
+        <%= link_to "Regresar", :back %>
+      </div>
+    </div>
+  </div>
+</div>

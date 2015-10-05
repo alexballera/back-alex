@@ -1,0 +1,21 @@
+<% name ||= "Crear" %>
+<h1><%= name %> Artículo</h1>
+<% @article.errors %>
+<%= semantic_form_for @article do |f| %>
+<%= f.inputs do %>
+<%= f.input :title, :label => I18n.t('title') %>
+<%= f.input :description, :label => I18n.t('description') %>
+<%= f.input :urlgit, label: "GitHub" %>
+<%= f.input :urlweb, label: "Url Web" %>
+<%= f.input :urlimg, label: "Url Imagen" %>
+<%= f.file_field :image, class:"boton_imagen" %>
+<%= f.input :category, :as => :check_boxes, label: "Categorías" %>
+<% end %>
+<% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+<div class="field">
+  <%= f.actions do %>
+  <%= f.action :submit, :as => :input, label: "Guardar" %>
+  <% end %>
+</div>
+<% end %>
+<% end %>

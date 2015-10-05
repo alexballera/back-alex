@@ -1,0 +1,86 @@
+textarea{
+  height: 5em !important;
+}
+hr{
+  border-top: 1px solid white !important;
+ }
+
+.container-60{
+  @extend %max-60;
+  padding-top: 50px !important;
+  text-align: center;
+}
+
+.users{
+  font-size: 1.25em;
+  &__titulo{
+  margin: 0;
+  padding: 0;
+  }
+  &__email,
+  &__password,
+  &__name{
+    @extend %min-60;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    padding: .50em 1em;
+  }
+  &__boton{
+    @extend %boton;
+    &--guardar,
+    &--cancelar{
+      width: 250px;
+      height: 50px;
+      border: none;
+      border-radius: 0 !important;
+    }
+    &:hover{
+      @extend %hover;
+    }
+  }
+  &__editar{
+    &--name{
+      padding: 0.1em 1em;
+    }
+  }
+  &__footer{
+    margin-left: 19%;
+  }
+  &__new{
+    margin-top: 50px;
+  }
+}
+.field{
+  margin: .75em 0;
+  & span{
+    color: peru;
+  }
+}
+.container{
+  @extend %max-80;
+  min-height: 600px;
+  background: #EEEEEE;
+  &_form{
+    @extend %max-60;
+    margin-top: 40px;
+    & h1{
+      font-weight: 700;
+    }    
+    & .btn,
+    & input{
+      font-weight: 700;
+      &:hover{
+        @extend %hover;
+      }
+    }
+  }
+  &_index{
+    @extend %max-80;
+  }
+}
+.boton_imagen{
+  margin-bottom: 1em;
+  font-size: 1.1em;
+  font-weight: 700;
+}
