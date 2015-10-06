@@ -1,5 +1,15 @@
 $grisclaro: #aeaeae;
 $grisoscuro: #1e1e1e;
+@mixin background($imgpath,$size:cover,$position:center,$repeat:no-repeat,$width:1024px,$height:343px) {
+  background: {
+      image: url($imgpath);
+      size: $size;
+      position: $position;
+      repeat: $repeat;
+      width: $width;
+      height: $height;
+  }
+}
 %hover{
   background: aqua !important;
   color: $grisoscuro !important;
