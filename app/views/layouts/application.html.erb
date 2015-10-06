@@ -35,10 +35,8 @@
     <%= favicon_link_tag 'mi_favicon.png', :rel => 'shortcut icon', :type => 'image/png' %>
   </head>
   <body>
-  <% if current_user %>
     <%= render 'layouts/menu' %>
-  <% end %>
-  <%= bootstrap_flash %>
+    <%= bootstrap_flash %>
   <%= yield %>
   <%= render "layouts/analitycs"%>
   </body>
