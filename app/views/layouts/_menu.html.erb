@@ -15,8 +15,8 @@
       <% if current_user %>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <li><%= link_to "Publicaciones", "/articles", class:"navbar-item"  %></li>
-        <li><%= link_to "Proyectos", "/projects", class:"navbar-item"  %></li>
+        <li><%= link_to "Mis Publicaciones", "/articles", class:"navbar-item"  %></li>
+        <li><%= link_to "Mis Proyectos", "/projects", class:"navbar-item"  %></li>
         <li><%= link_to "Categorías", "/categories", class:"navbar-item"  %></li>
         <% end %>
         <%if user_signed_in? && current_user.is_admin? %>
@@ -32,8 +32,8 @@
       </ul>
       <% else %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Publicaciones", "/articles", class:"navbar-item"  %></li>
-        <li><%= link_to "Proyectos", "/projects", class:"navbar-item"  %></li>
+        <li><%= link_to "Mis Publicaciones", "/articles", class:"navbar-item"  %></li>
+        <li><%= link_to "Mis Proyectos", "/projects", class:"navbar-item"  %></li>
         <li>
           <%= link_to 'Inicia Sesión', new_user_session_path , class:"navbar-item" %>
         </li>

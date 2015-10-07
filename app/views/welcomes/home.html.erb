@@ -4,9 +4,13 @@
     <%= image_tag("mi_foto_cuadrada.jpg", class:"avatar__image", alt:"Avatar") %>
     <figcaption class="avatar__descripcion--large"><h1>¡Bienvenido!</h1></figcaption>
   <p class="avatar__contenido"><strong>Espero que mis contenido y proyectos web te inspiren y agreguen valor</strong></p>
-  <p class="avatar__contenido"><strong>Alex Ballera</strong></p>
+<%= link_to 'Ir a Mis Publicaciones', articles_path , class:"avatar__link" %>
   </figure>
 </header>
+<footer>
+  <div class="col-md-6">Contacto</div>
+  <div class="col-md-6">Sígueme</div>
+</footer>
 <% else %>
 <header class="header">
   <figure class="avatar">
@@ -16,4 +20,8 @@
   <%= link_to 'Click AQUÍ Para Registrarte', new_user_registration_path , class:"avatar__link" %>
   </figure>
 </header>
+<footer>
+  <div class="col-md-6">Contacto</div>
+  <div class="col-md-6">Sígueme</div>
+</footer>
 <% end %>
