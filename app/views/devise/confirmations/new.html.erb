@@ -1,5 +1,7 @@
-<h2>Reenviando instrucciones de confirmación</h2>
-
+<div class="container-60 users users__new">
+  <div class="field">
+      <h2 class="users__titulo"><strong>Reenviando instrucciones de confirmación</strong></h2>
+  </div>
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -13,4 +15,6 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="field">
+  <%= render "devise/shared/links" %>
+</div>
