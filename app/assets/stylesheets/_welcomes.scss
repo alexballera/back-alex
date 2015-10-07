@@ -4,11 +4,12 @@
 .header{
   @include background('portada.jpg');
   text-align: center;
-  padding: 3em 0;
+  padding: 5.75em 0;
   .avatar{
     margin: 0;
+    // padding: 4em 0;
     &__image{
-      width: 15em;
+      width: 20em;
       border: 5px solid white;
       border-radius: 50%;
       margin-bottom: 2em;
@@ -26,9 +27,4 @@
     }
 
   }
-}
-footer{
-  background: $grisoscuro;
-  color: $grisclaro;
-  height: 145px;
 }
