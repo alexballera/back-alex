@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.latest
+    @projects = Project.latest.page(params[:page]).per_page(5)
   end
 
   # GET /projects/1

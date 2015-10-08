@@ -1,6 +1,14 @@
 <div class="container">
   <div class="container_form container_index">
     <h1><strong>Mis Proyectos</strong></h1>
+    <div class="field">
+      <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
+      <%= link_to 'Nuevo Proyecto', new_project_path %> |
+      <%= link_to "Regresar", :back %>
+      <% else %>
+      <%= link_to "Regresar", :back %>
+      <% end %>
+    </div>
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -38,13 +46,7 @@
       </table>
       <br>
     </div>
-    <div class="field">
-      <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
-      <%= link_to 'Nuevo Proyecto', new_project_path %> |
-      <%= link_to "Regresar", :back %>
-      <% else %>
-      <%= link_to "Regresar", :back %>
-      <% end %>
-    </div>
+    <%= page_entries_info @projects %>
+    <%= will_paginate @projects, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

@@ -22,6 +22,23 @@
 es:
   title: Título
   description: Descripción
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Siguiente &#8594;"
+    page_gap: "&hellip;"
+    will_paginate:
+    page_entries_info:
+      single_page:
+        zero:  "%{model}, no encontrado!"
+        one:   "1 %{model}"
+        other: "Total: %{count} registros de %{model}"
+      single_page_html:
+        zero:  "%{model}, no encontrado!"
+        one:   "<b>1</b> %{model}"
+        other: "Total: <b>%{count} registros&nbsp;</b> de %{model}"
+
+      multi_page: "%{model} %{from} - %{to} de %{count}"
+      multi_page_html: "Desplegando <b>&nbsp;%{to}</b> de <b>%{count}</b> %{model}"
   formtastic:
     :yes: "Sí"
     :no: "No"

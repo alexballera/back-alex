@@ -56,6 +56,10 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'paperclip'
 
+gem 'will_paginate', '~> 3.0.6'
+
+gem 'will_paginate-bootstrap'
+
 ruby "2.2.2"
 
 # Use ActiveModel has_secure_password

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:index]
 
   def index
-    @users = User.latest
+    @users = User.latest.page(params[:page]).per_page(5)
   end
 
   def edit
