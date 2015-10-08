@@ -46,7 +46,9 @@
       </table>
       <br>
     </div>
-    <%= page_entries_info @projects %>
+    <div class="field">
+      <%= page_entries_info @projects %>
+    </div>
     <%= will_paginate @projects, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

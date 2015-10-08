@@ -29,16 +29,16 @@ es:
     will_paginate:
     page_entries_info:
       single_page:
-        zero:  "%{model}, no encontrado!"
-        one:   "1 %{model}"
-        other: "Total: %{count} registros de %{model}"
+        zero:  ""
+        one:   "<b>1 Registro</b>"
+        other: "<b>%{count} Registros</b>"
       single_page_html:
-        zero:  "%{model}, no encontrado!"
-        one:   "<b>1</b> %{model}"
-        other: "Total: <b>%{count} registros&nbsp;</b> de %{model}"
+        zero:  ""
+        one:   "<b>1 Registro</b>"
+        other: "<b>%{count} Registros&nbsp;</b>"
 
-      multi_page: "%{model} %{from} - %{to} de %{count}"
-      multi_page_html: "Desplegando <b>&nbsp;%{to}</b> de <b>%{count}</b> %{model}"
+      multi_page: "Desplegando regístros: <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> totales"
+      multi_page_html: "Desplegando regístros: <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> totales"
   formtastic:
     :yes: "Sí"
     :no: "No"
