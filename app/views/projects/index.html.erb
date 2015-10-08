@@ -3,10 +3,7 @@
     <h1><strong>Mis Proyectos</strong></h1>
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
-      <%= link_to 'Nuevo Proyecto', new_project_path %> |
-      <%= link_to "Regresar", :back %>
-      <% else %>
-      <%= link_to "Regresar", :back %>
+      <%= link_to 'Nuevo Proyecto', new_project_path %> 
       <% end %>
     </div>
     <div class="table-responsive">

@@ -3,10 +3,7 @@
     <h1><strong>Mis Publicaciones</strong></h1>
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
-      <%= link_to 'Nuevo Artículo', new_article_path %> |
-      <%= link_to "Regresar", :back %>
-      <% else %>
-      <%= link_to "Regresar", :back %>
+      <%= link_to 'Nuevo Artículo', new_article_path %> 
       <% end %>
     </div>
     <div class="table-responsive">

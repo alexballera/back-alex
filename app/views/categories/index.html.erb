@@ -3,10 +3,7 @@
     <h1><strong>Categorías</strong></h1>
     <div class="field">
       <% if user_signed_in? && current_user.is_asistant? || user_signed_in? && current_user.is_admin? %>
-      <%= link_to 'Nueva Categoría', new_category_path %> |
-      <%= link_to "Regresar", :back %>
-      <% else %>
-      <%= link_to "Regresar", :back %>
+      <%= link_to 'Nueva Categoría', new_category_path %> 
       <% end %>
     </div>
     <div class="table-responsive">
