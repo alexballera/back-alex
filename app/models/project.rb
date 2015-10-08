@@ -7,4 +7,6 @@ class Project < ActiveRecord::Base
 
   has_attached_file :image, styles: { large: "640X640>", medium: "300x300>", thumb: "100x100>", mini: "40x40>"}, :default_url => "missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  scope :latest, ->{ order(created_at: :desc) }
+
 end

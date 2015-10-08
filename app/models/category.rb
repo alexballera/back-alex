@@ -4,4 +4,6 @@ class Category < ActiveRecord::Base
   has_and_belongs_to_many :article, dependent: :destroy
   validates :title, :presence => {:message => "No debe estar en blanco"}
   validates :title, length: { maximum: 50, too_long: "%{count} caracteres es el máximo permitido" }
+
+  scope :latest, ->{ order(created_at: :desc) }
 end
