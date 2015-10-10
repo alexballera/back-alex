@@ -3,12 +3,14 @@ class User < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :categories, dependent: :destroy
-  validates :email, :presence => {:message => "No debe estar en blanco"}
+  validates :email, :presence => {:message => "No debe estar en blanco"},
+                  format: { with: /\A[^@]+@[^@]+\z/,
+                  message: "Introduzca una dirección de correo electrónica válida" }
   validates :name, length: { maximum: 50, too_long: "%{count} caracteres es el máximo permitido" }
     # Include default devise modules. Others available are:
-  # :lockable, :timeoutable and :omniauthable
+  # :lockable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :confirmable, :recoverable, :rememberable, :trackable, :validatable
+         :confirmable, :timeoutable, :recoverable, :rememberable, :trackable, :validatable
 
   scope :latest, ->{ order(created_at: :desc) }
 end
